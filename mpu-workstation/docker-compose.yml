@@ -1,0 +1,15 @@
+services:
+  workstation:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mpu-workstation:1.0.0
+    container_name: mpu-workstation
+    ports:
+      - "8085:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3

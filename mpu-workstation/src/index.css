@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Palettes. Everything in the UI reads these variables, so flipping the
+   data-theme attribute on the shell re-skins the whole workstation.
+--------------------------------------------------------------------------- */
+
+[data-theme='dark'] {
+  --c-base: #1b1b1f;
+  --c-panel: #232329;
+  --c-deep: #17171b;
+  --c-rail: #131316;
+  --c-line: #32323a;
+  --c-line-soft: #2a2a31;
+  --c-text: #dcdce2;
+  --c-dim: #9a9aa4;
+  --c-dimmer: #6c6c77;
+  --c-accent: #2b7fc3;
+  --c-accent-text: #79c0f0;
+  --c-green: #58d0b6;
+  --c-red: #f58379;
+  --c-amber: #e7d493;
+  --c-blue: #7cb8f0;
+  --c-purple: #cf94ca;
+  --c-orange: #dd9e7e;
+  --c-strong: #f6f6f8;
+  --c-comment: #82a982;
+  --c-number: #bcd9a6;
+  --c-ident: #9cdcfe;
+
+  --c-hl: rgba(43, 127, 195, 0.42);
+  --c-hl-soft: rgba(43, 127, 195, 0.22);
+  --c-hl-faint: rgba(43, 127, 195, 0.13);
+  --c-ok-wash: rgba(88, 208, 182, 0.14);
+  --c-ok-line: rgba(88, 208, 182, 0.45);
+  --c-err-wash: rgba(245, 131, 121, 0.14);
+  --c-read: rgba(88, 208, 182, 0.28);
+  --c-write: rgba(245, 131, 121, 0.30);
+  --c-exec: rgba(124, 184, 240, 0.30);
+
+  --c-grid: #26262c;
+  --c-grid-strong: #2f2f36;
+  --c-display-bg: #0d0d10;
+  --c-seg-on: #ff6a5e;
+  --c-seg-off: #2e1615;
+  --c-led-on: #58d0b6;
+  --c-led-off: #24242a;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-float: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --header-grad: linear-gradient(180deg, #2a2a31 0%, #232329 100%);
+}
+
+[data-theme='light'] {
+  --c-base: #ececed;
+  --c-panel: #ffffff;
+  --c-deep: #fbfbfc;
+  --c-rail: #f2f2f4;
+  --c-line: #d6d6dc;
+  --c-line-soft: #e3e3e8;
+  --c-text: #33333b;
+  --c-dim: #6d6d78;
+  --c-dimmer: #91919c;
+  --c-accent: #10659f;
+  --c-accent-text: #0b4f7d;
+  --c-green: #0f7a6a;
+  --c-red: #c23b30;
+  --c-amber: #8a6a08;
+  --c-blue: #1a5fb4;
+  --c-purple: #8b3fa3;
+  --c-orange: #a8521f;
+  --c-strong: #111116;
+  --c-comment: #3f7a46;
+  --c-number: #2c6b3c;
+  --c-ident: #14618c;
+
+  --c-hl: rgba(16, 101, 159, 0.30);
+  --c-hl-soft: rgba(16, 101, 159, 0.16);
+  --c-hl-faint: rgba(16, 101, 159, 0.09);
+  --c-ok-wash: rgba(15, 122, 106, 0.12);
+  --c-ok-line: rgba(15, 122, 106, 0.40);
+  --c-err-wash: rgba(194, 59, 48, 0.12);
+  --c-read: rgba(15, 122, 106, 0.22);
+  --c-write: rgba(194, 59, 48, 0.20);
+  --c-exec: rgba(26, 95, 180, 0.20);
+
+  --c-grid: #e6e6ea;
+  --c-grid-strong: #d4d4da;
+  --c-display-bg: #1a1a1e;
+  --c-seg-on: #ff5546;
+  --c-seg-off: #3a2422;
+  --c-led-on: #16a085;
+  --c-led-off: #cfcfd6;
+
+  --shadow-card: 0 1px 2px rgba(20, 20, 30, 0.08);
+  --shadow-float: 0 12px 32px rgba(20, 20, 30, 0.18);
+  --header-grad: linear-gradient(180deg, #ffffff 0%, #f6f6f8 100%);
+}
+
+:root {
+  --fs-xs: 10px;
+  --fs-sm: 11px;
+  --fs: 12px;
+  --fs-lg: 13px;
+  --row: 18px;
+}
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--c-base, #1b1b1f);
+  color: var(--c-text, #dcdce2);
+  font-family: 'JetBrains Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--c-line); border-radius: 5px; border: 2px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--c-dimmer); background-clip: content-box; }
+::-webkit-scrollbar-track { background: transparent; }
+* { scrollbar-color: var(--c-line) transparent; scrollbar-width: thin; }
+
+:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 1px; border-radius: 3px; }
+
+input, select, textarea, button { font-family: inherit; }
+
+/* ------------------------------- animation ------------------------------- */
+
+@keyframes riseIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes dockIn { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: none; } }
+@keyframes popIn { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes stackpush { from { transform: translateY(-10px); opacity: .25 } to { transform: translateY(0); opacity: 1 } }
+@keyframes fadein { from { opacity: 0 } to { opacity: 1 } }
+@keyframes toastIn { from { opacity: 0; transform: translateY(10px) scale(.98) } to { opacity: 1; transform: none } }
+@keyframes softPulse { 0%, 100% { opacity: 1 } 50% { opacity: .3 } }
+
+.anim-rise  { animation: riseIn 220ms ease-out; }
+.anim-dock  { animation: dockIn 200ms ease-out; }
+.anim-pop   { animation: popIn 160ms ease-out; }
+.anim-toast { animation: toastIn 220ms cubic-bezier(.2,.9,.3,1); }
+.pulse-dot  { animation: softPulse 1.4s ease-in-out infinite; }
+
+.press:active { transform: translateY(1px); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+/* splitter grip picks up the accent while its parent is hovered */
+.splitter-grip { background: var(--c-line); transition: background 140ms linear; }
+.group:hover > .splitter-grip { background: var(--c-accent); }
+
+.menu-item { background: transparent; transition: background 120ms linear; }
+.menu-item:hover { background: var(--c-hl-faint); }

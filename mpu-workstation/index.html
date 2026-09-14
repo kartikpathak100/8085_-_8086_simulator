@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Write, assemble and step through 8085 and 8086 assembly — forwards and backwards — with live registers, memory and simulated hardware." />
+    <meta name="theme-color" content="#2b7fc3" />
+    <title>MPU Workstation — 8085 / 8086</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+    <script>
+      /* Apply the saved theme before first paint so there is no flash. */
+      try {
+        var saved = JSON.parse(localStorage.getItem('mpu.theme') || '"dark"');
+        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+      } catch (e) { /* storage disabled — dark stays */ }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>This workstation needs JavaScript enabled.</noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
