@@ -17,7 +17,7 @@ offline, and it can sit on your desktop like a normal app.
 
 ## Run it
 
-The first run downloads a base image or npm packages and takes a couple of minutes. After that
+After downloading and extracting the zip file, the first run downloads a base image or npm packages and takes a couple of minutes. After that
 it starts in about a second.
 
 ### 1. One command (recommended)
