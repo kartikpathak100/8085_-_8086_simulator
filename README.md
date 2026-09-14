@@ -1,5 +1,11 @@
 # MPU Workstation — 8085 / 8086
 
+![MIT License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
+![React 18](https://img.shields.io/badge/React-18-61dafb?style=flat-square&logo=react)
+![Vite 5](https://img.shields.io/badge/Vite-5-646cff?style=flat-square&logo=vite)
+![PWA](https://img.shields.io/badge/PWA-offline--ready-5a0fc8?style=flat-square&logo=pwa)
+![Docker](https://img.shields.io/badge/Docker-ready-0db7ed?style=flat-square&logo=docker)
+
 An interactive microprocessor workstation you run in a browser. Write assembly, assemble it,
 step through it one instruction at a time — forwards **and** backwards — and open the registers,
 memory and hardware panels whenever you want to see what changed.
